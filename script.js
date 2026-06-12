@@ -346,8 +346,12 @@ function setupRing() {
 
   const cards = [...ring.children];
   const step = 360 / cards.length;
-  const autoSpeed = reduceMotion.matches ? 0 : 0.05;
+  const section = stage.closest(".projects") || stage;
+  const spinDistance = (360 + step * 1.5) * 0.7;
+  const autoSpeed = reduceMotion.matches ? 0 : 0.035;
   let rotation = 0;
+  let scrollRotation = 0;
+  let interactionRotation = 0;
   let velocity = 0;
   let dragging = false;
   let lastX = 0;
@@ -367,8 +371,8 @@ function setupRing() {
     if (!dragging) return;
     const dx = event.clientX - lastX;
     lastX = event.clientX;
-    velocity = dx * 0.28;
-    rotation += velocity;
+    velocity = Math.max(Math.min(dx * 0.11, 18), -18);
+    interactionRotation += dx * 0.22;
   });
 
   ["pointerup", "pointercancel", "lostpointercapture"].forEach((type) => {
@@ -377,11 +381,23 @@ function setupRing() {
     });
   });
 
+  function updateTargetRotation() {
+    const rect = section.getBoundingClientRect();
+    const travel = window.innerHeight + rect.height;
+    const progress = travel > 0 ? Math.min(Math.max((window.innerHeight - rect.top) / travel, 0), 1) : 0;
+    scrollRotation = -progress * spinDistance;
+  }
+
   function frame() {
+    updateTargetRotation();
+
     if (!dragging) {
-      velocity *= 0.95;
-      rotation += velocity + autoSpeed;
+      velocity *= 0.86;
+      interactionRotation += velocity + autoSpeed;
     }
+
+    const targetRotation = scrollRotation + interactionRotation;
+    rotation = reduceMotion.matches ? targetRotation : rotation + (targetRotation - rotation) * 0.14;
 
     ring.style.setProperty("--ring-rot", `${rotation.toFixed(2)}deg`);
 
@@ -394,6 +410,7 @@ function setupRing() {
     requestAnimationFrame(frame);
   }
 
+  updateTargetRotation();
   frame();
 }
 
