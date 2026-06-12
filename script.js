@@ -40,7 +40,7 @@ function draw() {
     const alpha = 0.12 + (i % 3) * 0.035;
 
     ctx.beginPath();
-    ctx.strokeStyle = `rgba(57, 255, 20, ${alpha})`;
+    ctx.strokeStyle = i % 2 === 0 ? `rgba(244, 247, 255, ${alpha})` : `rgba(124, 255, 178, ${alpha * 0.85})`;
     ctx.lineWidth = i % 4 === 0 ? 2.2 : 1.15;
     ctx.moveTo(
       -180 + Math.sin(phase) * 42 + pointerShiftX,
@@ -63,7 +63,7 @@ function draw() {
     const pulse = 0.45 + Math.sin(time * 2 + i) * 0.35;
 
     ctx.beginPath();
-    ctx.fillStyle = `rgba(180, 255, 0, ${0.12 + pulse * 0.16})`;
+    ctx.fillStyle = i % 3 === 0 ? `rgba(88, 217, 249, ${0.1 + pulse * 0.12})` : `rgba(244, 247, 255, ${0.1 + pulse * 0.14})`;
     ctx.arc(x, y + pointerShiftY, 1.4 + pulse * 1.8, 0, Math.PI * 2);
     ctx.fill();
   }
