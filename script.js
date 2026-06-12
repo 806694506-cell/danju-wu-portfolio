@@ -106,9 +106,9 @@ function updateScrollEffects() {
 
 function setupReveals() {
   const revealTargets = [
-    ...document.querySelectorAll(".profile .section-label, .experience .section-label, .projects .section-label, .contact .section-label"),
-    ...document.querySelectorAll(".profile h2, .experience h2, .projects h2, .contact h2"),
-    ...document.querySelectorAll(".profile-grid article, .timeline article, .project-grid article, .contact-panel a"),
+    ...document.querySelectorAll(".profile .section-label, .experience .section-label, .projects .section-label, .contact .section-label, .creative-band .section-label"),
+    ...document.querySelectorAll(".profile h2, .experience h2, .projects h2, .contact h2, .creative-band h2"),
+    ...document.querySelectorAll(".creative-copy > p:last-child, .profile-grid article, .timeline article, .project-grid article, .contact-panel a, .idea-row span"),
   ];
 
   revealTargets.forEach((target, index) => {
@@ -172,7 +172,7 @@ setupReveals();
 setupTilt();
 updateScrollEffects();
 requestAnimationFrame(() => {
-  const overflowing = [...document.querySelectorAll("h1, h2, h3, .pill, .contact-panel a, .profile-card dd, small")]
+  const overflowing = [...document.querySelectorAll("h1, h2, h3, .pill, .contact-panel a, .profile-card dd, small, .project-grid p")]
     .filter((element) => element.scrollWidth > element.clientWidth + 1)
     .map((element) => element.textContent.trim().slice(0, 80));
 
