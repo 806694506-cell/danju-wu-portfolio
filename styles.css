@@ -951,17 +951,6 @@ h2 {
   box-shadow: 0 24px 48px rgba(0, 0, 0, 0.32), 0 0 28px rgba(244, 247, 255, 0.26);
 }
 
-.projects .project-grid article:nth-child(even) {
-  background:
-    linear-gradient(90deg, rgba(7, 7, 10, 0.9) 0 26%, rgba(244, 247, 255, 0.96) 26% 76%, rgba(244, 247, 255, 0.05) 76%),
-    radial-gradient(circle at 80% 52%, rgba(124, 255, 178, 0.13), transparent 24vw);
-}
-
-.projects .project-grid article:nth-child(even) .project-index {
-  color: transparent;
-  -webkit-text-stroke: 2px var(--glass);
-}
-
 .projects .project-grid h3 {
   margin-top: 0;
   color: #08080b;
@@ -984,12 +973,6 @@ h2 {
   font-size: clamp(64px, 9vw, 126px);
   line-height: 0.8;
   font-family: var(--display-font);
-}
-
-.projects .project-grid article:nth-child(even) h3,
-.projects .project-grid article:nth-child(even) p,
-.projects .project-grid article:nth-child(even) small {
-  color: #0a0a0d;
 }
 
 .contact {
