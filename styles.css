@@ -2,8 +2,8 @@
   --bg: #07070a;
   --fg: #eef1fa;
   --muted: #b9b8ce;
-  --green: #7cffb2;
-  --green-hot: #39ff14;
+  --green: #eef1fa;
+  --green-hot: #7cffb2;
   --cyan: #58d9f9;
   --violet: #8d48e3;
   --glass: #f4f7ff;
@@ -31,7 +31,7 @@ body {
   background:
     radial-gradient(circle at 17% 18%, rgba(88, 217, 249, 0.11), transparent 24vw),
     radial-gradient(circle at 74% 24%, rgba(141, 72, 227, 0.11), transparent 26vw),
-    radial-gradient(circle at 88% 78%, rgba(124, 255, 178, 0.1), transparent 28vw),
+    radial-gradient(circle at 88% 78%, rgba(124, 255, 178, 0.05), transparent 28vw),
     linear-gradient(135deg, rgba(238, 241, 250, 0.04) 0 1px, transparent 1px 24px),
     var(--bg);
   color: var(--fg);
@@ -106,11 +106,11 @@ a {
   width: 54vw;
   height: 54vw;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(238, 241, 250, 0.32) 0%, rgba(88, 217, 249, 0.15) 30%, rgba(124, 255, 178, 0.08) 48%, transparent 70%);
+  background: radial-gradient(circle, rgba(238, 241, 250, 0.24) 0%, rgba(88, 217, 249, 0.1) 30%, rgba(141, 72, 227, 0.06) 48%, transparent 70%);
   filter: blur(22px);
   pointer-events: none;
   z-index: -2;
-  opacity: 0.7;
+  opacity: 0.5;
   animation: glow-drift 8s ease-in-out infinite alternate;
 }
 
@@ -523,6 +523,27 @@ h1 span,
 h2 {
   color: var(--green);
   text-shadow: 0 0 24px rgba(124, 255, 178, 0.24);
+}
+
+.launch .launch-title span {
+  color: rgba(244, 247, 255, 0.94);
+  text-shadow:
+    0 0 4px rgba(255, 255, 255, 0.75),
+    0 0 18px rgba(244, 247, 255, 0.38),
+    0 0 42px rgba(88, 217, 249, 0.2);
+}
+
+.eyebrow,
+.section-label,
+.hero-actions span,
+.profile-card dt,
+.profile-grid span,
+.project-index,
+.timeline time,
+.project-grid small,
+.side-word,
+.pill span {
+  color: var(--green-hot);
 }
 
 .intro {
